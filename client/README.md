@@ -1,239 +1,106 @@
-# GrotifyCarrers
+# Grotify Careers - Client
 
-![Node.js](https://img.shields.io/badge/-Node.js-blue?logo=nodejs&logoColor=white)
+This is the frontend of the **Grotify Careers** Job Application Tracker, a full-stack MERN application that allows users to manage job applications with complete CRUD functionality. The frontend is built with **React**, **Tailwind CSS**, **GSAP** for animations, and **SVG** for custom graphics.
 
-## 📝 Description
+## Features
 
-Grotify Careers is a modern and intuitive job application tracker built using the MERN stack (MongoDB, Express.js, React, Node.js). This application empowers users to efficiently manage their job search process through a comprehensive suite of features, including Create, Read, Update, and Delete (CRUD) operations for seamless job application management. Security is paramount, with robust authentication protocols safeguarding user data. Input validation ensures data integrity and a smooth user experience. The responsive user interface, crafted with Tailwind CSS, provides an optimal viewing experience across all devices. Engaging GSAP animations and custom SVGs enhance the visual appeal and user interaction. The intuitive dashboard offers a centralized hub for managing job applications, with convenient edit and delete options, complemented by confirmation modals to prevent accidental data loss, making Grotify Careers an indispensable tool for anyone navigating the job market.
+- **Home Page**: Welcomes users with an engaging interface and project overview.
+- **Dashboard**: Displays a list of job applications with options to view, edit, or delete.
+- **Job Management**:
+  - **Job Form**: Add or edit job applications with validation for company name (min 3 chars), job title, application date (no future dates), and status.
+  - **Job List**: Displays all job applications in a table with edit/delete options.
+  - **Job Details**: View detailed information about a specific job application.
+  - **Confirm Delete Modal**: Prompts user confirmation before deleting a job application.
+- **Authentication**: Login and Register pages for user authentication.
+- **Responsive Design**: Built with Tailwind CSS for a clean, user-friendly interface.
+- **Animations**: GSAP used for smooth transitions and visual effects.
 
-## 🛠️ Tech Stack
-
-- ⬢ Node.js
-
-
-## 📦 Key Dependencies
-
+## Project Structure
 ```
-@fortawesome/fontawesome-free: ^7.1.0
-@gsap/react: ^2.1.2
-@heroicons/react: ^2.2.0
-gsap: ^3.13.0
-split-text: ^1.0.0
+client/
+├── package.json              # Dependencies and scripts
+├── postcss.config.js         # PostCSS configuration for Tailwind CSS
+├── public/                   # Static assets
+│   ├── favicon.ico
+│   ├── index.html            # Main HTML file
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+├── src/
+│   ├── App.css               # Global styles
+│   ├── App.jsx               # Main App component
+│   ├── App.test.js           # Test file for App
+│   ├── Assets/               # Static assets like images and SVGs
+│   │   ├── hiring-portal.png
+│   │   └── loading.svg
+│   ├── Components/           # Reusable React components
+│   │   ├── AuthPage.jsx      # Wrapper for login/register
+│   │   ├── Header.jsx        # Navigation bar
+│   │   ├── Jobs/             # Job-related components
+│   │   │   ├── ConfirmDeleteModal.jsx
+│   │   │   ├── JobDetails.jsx
+│   │   │   ├── JobForm.jsx
+│   │   │   └── JobList.jsx
+│   │   ├── Login.jsx         # Login form
+│   │   ├── PrivateRoute.jsx  # Protects routes for authenticated users
+│   │   ├── ProfileDropdown.jsx # User profile dropdown menu
+│   │   └── Register.jsx      # Registration form
+│   ├── Pages/                # Page components
+│   │   ├── Dashboard.jsx     # Dashboard for job applications
+│   │   └── Home.jsx          # Landing page
+│   ├── ThemeContext.jsx      # Context for theme management
+│   ├── UserContext.jsx       # Context for user authentication
+│   ├── api.js                # API call utilities
+│   ├── api.jsx               # Additional API-related components
+│   ├── index.css             # Tailwind CSS imports and global styles
+│   ├── index.js              # Entry point for React
+│   ├── logo.svg              # Application logo
+│   ├── reportWebVitals.js    # Performance monitoring
+│   └── setupTests.js         # Testing setup
+├── tailwind.config.js        # Tailwind CSS configuration
+text## Prerequisites
 ```
+- Node.js (v16 or higher)
+- npm or yarn
+- A running backend server (see `server/README.md`)
 
-## 🚀 Run Commands
+## Setup Instructions
 
-- **start**: `npm run start`
-- **build**: `npm run build`
-- **test**: `npm run test`
-- **eject**: `npm run eject`
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd client
 
+Install Dependencies:
+bashnpm install
 
-## 📁 Project Structure
+Create .env File:
+In the client directory, create a .env file with:
+env_API_URL=http://localhost:5000/api
 
-```
-.
-├── client
-│   ├── package.json
-│   ├── postcss.config.js
-│   ├── public
-│   │   ├── favicon.ico
-│   │   ├── index.html
-│   │   ├── logo192.png
-│   │   ├── logo512.png
-│   │   ├── manifest.json
-│   │   └── robots.txt
-│   ├── src
-│   │   ├── App.css
-│   │   ├── App.jsx
-│   │   ├── App.test.js
-│   │   ├── Assets
-│   │   │   ├── hiring-portal.png
-│   │   │   └── loading.svg
-│   │   ├── Components
-│   │   │   ├── AuthPage.jsx
-│   │   │   ├── Header.jsx
-│   │   │   ├── Jobs
-│   │   │   │   ├── ConfirmDeleteModal.jsx
-│   │   │   │   ├── JobDetails.jsx
-│   │   │   │   ├── JobForm.jsx
-│   │   │   │   └── JobList.jsx
-│   │   │   ├── Login.jsx
-│   │   │   ├── PrivateRoute.jsx
-│   │   │   ├── ProfileDropdown.jsx
-│   │   │   └── Register.jsx
-│   │   ├── Pages
-│   │   │   ├── Dashboard.jsx
-│   │   │   └── Home.jsx
-│   │   ├── ThemeContext.jsx
-│   │   ├── UserContext.jsx
-│   │   ├── api.js
-│   │   ├── api.jsx
-│   │   ├── index.css
-│   │   ├── index.js
-│   │   ├── logo.svg
-│   │   ├── reportWebVitals.js
-│   │   └── setupTests.js
-│   └── tailwind.config.js
-├── note
-├── package.json
-└── server
-    ├── config
-    │   └── db.js
-    ├── controllers
-    │   ├── authController.js
-    │   └── jobController.js
-    ├── middleware
-    │   └── auth.js
-    ├── models
-    │   ├── JobApplication.js
-    │   └── User.js
-    ├── package.json
-    ├── routes
-    │   ├── auth.js
-    │   └── jobRoutes.js
-    └── server.js
-```
-
-## 🛠️ Development Setup
-
-### Node.js/JavaScript Setup
-1. Install Node.js (v18+ recommended)
-2. Install dependencies: `npm install` or `yarn install`
-3. Start development server: (Check scripts in `package.json`, e.g., `npm run dev`)
+Run the Application:
+bashnpm run dev
+The app runs on http://localhost:5173 (or the port specified by Vite).
+Build for Production:
+bashnpm run build
 
 
-## 👥 Contributing
+## Tools Used
 
-Contributions are welcome! Here's how you can help:
+React: Frontend library for building the UI.
+Tailwind CSS: Utility-first CSS framework for styling.
+GSAP: Animation library for smooth transitions and effects.
+SVG: Used for custom graphics and icons.
 
-1. **Fork** the repository
-2. **Clone** your fork: `git clone https://github.com/ThulasiRaman03778/GrotifyCarrers/blob/main/client.git`
-3. **Create** a new branch: `git checkout -b feature/your-feature`
-4. **Commit** your changes: `git commit -am 'Add some feature'`
-5. **Push** to your branch: `git push origin feature/your-feature`
-6. **Open** a pull request
+## Notes
 
-Please ensure your code follows the project's style guidelines and includes tests where applicable.
+Ensure the backend server is running before starting the frontend.
+The application uses Vite as the build tool for faster development.
+Frontend validation is implemented using React form libraries (e.g., Formik or React Hook Form) and custom validation logic.
 
----
-*This README was generated with ❤️ by ReadmeBuddy*# GrotifyCarrers
+## Troubleshooting
 
-![Node.js](https://img.shields.io/badge/-Node.js-blue?logo=nodejs&logoColor=white)
-
-## 📝 Description
-
-Grotify Careers is a modern and intuitive job application tracker built using the MERN stack (MongoDB, Express.js, React, Node.js). This application empowers users to efficiently manage their job search process through a comprehensive suite of features, including Create, Read, Update, and Delete (CRUD) operations for seamless job application management. Security is paramount, with robust authentication protocols safeguarding user data. Input validation ensures data integrity and a smooth user experience. The responsive user interface, crafted with Tailwind CSS, provides an optimal viewing experience across all devices. Engaging GSAP animations and custom SVGs enhance the visual appeal and user interaction. The intuitive dashboard offers a centralized hub for managing job applications, with convenient edit and delete options, complemented by confirmation modals to prevent accidental data loss, making Grotify Careers an indispensable tool for anyone navigating the job market.
-
-## 🛠️ Tech Stack
-
-- ⬢ Node.js
-
-
-## 📦 Key Dependencies
-
-```
-@fortawesome/fontawesome-free: ^7.1.0
-@gsap/react: ^2.1.2
-@heroicons/react: ^2.2.0
-gsap: ^3.13.0
-split-text: ^1.0.0
-```
-
-## 🚀 Run Commands
-
-- **start**: `npm run start`
-- **build**: `npm run build`
-- **test**: `npm run test`
-- **eject**: `npm run eject`
-
-
-## 📁 Project Structure
-
-```
-.
-├── client
-│   ├── package.json
-│   ├── postcss.config.js
-│   ├── public
-│   │   ├── favicon.ico
-│   │   ├── index.html
-│   │   ├── logo192.png
-│   │   ├── logo512.png
-│   │   ├── manifest.json
-│   │   └── robots.txt
-│   ├── src
-│   │   ├── App.css
-│   │   ├── App.jsx
-│   │   ├── App.test.js
-│   │   ├── Assets
-│   │   │   ├── hiring-portal.png
-│   │   │   └── loading.svg
-│   │   ├── Components
-│   │   │   ├── AuthPage.jsx
-│   │   │   ├── Header.jsx
-│   │   │   ├── Jobs
-│   │   │   │   ├── ConfirmDeleteModal.jsx
-│   │   │   │   ├── JobDetails.jsx
-│   │   │   │   ├── JobForm.jsx
-│   │   │   │   └── JobList.jsx
-│   │   │   ├── Login.jsx
-│   │   │   ├── PrivateRoute.jsx
-│   │   │   ├── ProfileDropdown.jsx
-│   │   │   └── Register.jsx
-│   │   ├── Pages
-│   │   │   ├── Dashboard.jsx
-│   │   │   └── Home.jsx
-│   │   ├── ThemeContext.jsx
-│   │   ├── UserContext.jsx
-│   │   ├── api.js
-│   │   ├── api.jsx
-│   │   ├── index.css
-│   │   ├── index.js
-│   │   ├── logo.svg
-│   │   ├── reportWebVitals.js
-│   │   └── setupTests.js
-│   └── tailwind.config.js
-├── note
-├── package.json
-└── server
-    ├── config
-    │   └── db.js
-    ├── controllers
-    │   ├── authController.js
-    │   └── jobController.js
-    ├── middleware
-    │   └── auth.js
-    ├── models
-    │   ├── JobApplication.js
-    │   └── User.js
-    ├── package.json
-    ├── routes
-    │   ├── auth.js
-    │   └── jobRoutes.js
-    └── server.js
-```
-
-## 🛠️ Development Setup
-
-### Node.js/JavaScript Setup
-1. Install Node.js (v18+ recommended)
-2. Install dependencies: `npm install` or `yarn install`
-3. Start development server: (Check scripts in `package.json`, e.g., `npm run dev`)
-
-
-## 👥 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. **Fork** the repository
-2. **Clone** your fork: `git clone https://github.com/ThulasiRaman03778/GrotifyCarrers/blob/main/client.git`
-3. **Create** a new branch: `git checkout -b feature/your-feature`
-4. **Commit** your changes: `git commit -am 'Add some feature'`
-5. **Push** to your branch: `git push origin feature/your-feature`
-6. **Open** a pull request
-
-Please ensure your code follows the project's style guidelines and includes tests where applicable.
-
----
-*This README was generated with ❤️ by ReadmeBuddy*
+If the app doesn't connect to the backend, verify the URL in the .env file.
+Clear the browser cache if you encounter stale data issues.
+Check the console for network or rendering errors.
