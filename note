@@ -1,0 +1,12 @@
+Let me know when you want:
+
+Logout button
+Loading spinners
+Toast notifications
+
+Method,URL,Protected,Description
+POST,/api/jobs,Yes,Create job
+GET,/api/jobs,Yes,List all jobs (user)
+GET,/api/jobs/:id,Yes,Get single job
+PUT,/api/jobs/:id,Yes,Update job
+DELETE,/api/jobs/:id,Yes,Delete job

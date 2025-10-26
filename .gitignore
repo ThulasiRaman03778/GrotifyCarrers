@@ -1,0 +1,34 @@
+# === Dependencies ===
+node_modules/
+# === Environment files ===
+.env
+# === Production build ===
+build/
+dist/
+
+# === Environment files ===
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# === Logs ===
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# === Editor & System Files ===
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# === Tailwind / PostCSS cache (if any) ===
+.tailwind-cache/
+.postcss-cache/
+
+# === Optional (ignore lock file if multiple devs use npm/yarn) ===
+# package-lock.json
+# yarn.lock

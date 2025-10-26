@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global light/dark mode styles */
+[data-theme='light'] {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #1f2937;
+  --primary-bg: rgba(255, 255, 255, 0.8);
+  --primary-text: #1f2937;
+  --secondary-text: #4b5563;
+}
+
+[data-theme='dark'] {
+  background-color: rgba(31, 41, 55, 0.9);
+  color: #e5e7eb;
+  --primary-bg: rgba(31, 41, 55, 0.8);
+  --primary-text: #e5e7eb;
+  --secondary-text: #d1d5db;
+}
+
+/* Smooth transitions */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+/* Section styles */
+.section-heading {
+  @apply text-4xl md:text-5xl font-bold;
+}
+
+.clip-text {
+  @apply inline-block;
+}
+
+.bg {
+  @apply absolute inset-0 object-cover w-full h-full;
+}
+.explore-jobs {
+  --bg-scale: 1;
+  --text-o: 1;
+  --text-x: 0px;
+  transform: scale(var(--bg-scale));
+}
+.explore-jobs span { transition: transform .3s; }
